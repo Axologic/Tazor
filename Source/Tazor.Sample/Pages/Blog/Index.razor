@@ -1,7 +1,7 @@
 ﻿@page "/blog"
 @page "/blog/{number}/{size}"
 @using Tazor.Sample.Models
-@implements IParameterizedView<Page<BlogPost>>
+@implements IParameterizedView
 
 <h1>Blog</h1>
 @foreach (var item in _items)
@@ -19,40 +19,20 @@
     [Parameter]
     public int Size { get; set; }
 
-    public static IEnumerable<Page<BlogPost>> GetData()
+    public static IEnumerable<ParameterView> GetParameters()
     {
-        return new[]
+        return new []
         {
-            new Page<BlogPost>
+            ParameterView.FromDictionary(new Dictionary<string, object?>
             {
-                Number = 1,
-                Size = 1,
-                Total = 2,
-                Items = new[]
-                {
-                    new BlogPost
-                    {
-                        Id = Guid.NewGuid(),
-                        Title = "Hello, world.",
-                        PublishedOn = DateTime.UtcNow
-                    }
-                }
-            },
-            new Page<BlogPost>
+                {nameof(Number), 1},
+                {nameof(Size), 1}
+            }),
+            ParameterView.FromDictionary(new Dictionary<string, object?>
             {
-                Number = 2,
-                Size = 1,
-                Total = 2,
-                Items = new[]
-                {
-                    new BlogPost
-                    {
-                        Id = Guid.NewGuid(),
-                        Title = "Hello, world 2.",
-                        PublishedOn = DateTime.UtcNow
-                    }
-                }
-            }
+                {nameof(Number), 2},
+                {nameof(Size), 1}
+            })
         };
     }
 }

@@ -1,6 +1,8 @@
-﻿namespace Tazor;
+﻿using Microsoft.AspNetCore.Components;
 
-public interface IParameterizedView<out T>
+namespace Tazor;
+
+public interface IParameterizedView
 {
-    static abstract IEnumerable<T> GetData();
+    static abstract IEnumerable<ParameterView> GetParameters();
 }
