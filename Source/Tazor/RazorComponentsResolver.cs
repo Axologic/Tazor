@@ -20,7 +20,7 @@ public class RazorComponentsResolver : IDocumentResolver
         _htmlRenderer = new HtmlRenderer(serviceProvider, loggerFactory);
     }
 
-    public async Task<IEnumerable<Document>> GetDocuments()
+    public async Task<Document[]> GetDocuments()
     {
         var components = Assembly.GetEntryAssembly()!.GetTypes()
             .Where(t => t.IsAssignableTo(typeof(ComponentBase)))
@@ -34,7 +34,7 @@ public class RazorComponentsResolver : IDocumentResolver
             results.AddRange(componentDocuments);
         }
 
-        return results;
+        return results.ToArray();
     }
     
     private async Task<IEnumerable<Document>> GetDocuments(Type componentType)

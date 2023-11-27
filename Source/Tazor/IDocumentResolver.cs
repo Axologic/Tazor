@@ -2,5 +2,5 @@
 
 public interface IDocumentResolver
 {
-    Task<IEnumerable<Document>> GetDocuments();
+    Task<Document[]> GetDocuments();
 }

@@ -15,8 +15,4 @@
       <ProjectReference Include="..\Tazor\Tazor.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Pages\Blog\Posts\" />
-    </ItemGroup>
-
 </Project>
