@@ -63,6 +63,6 @@ Tazor is licensed under the [MIT License](LICENSE.md).
 
 ## Support
 
-For any questions or issues, check the [documentation](https://github.com/yourusername/tazor) or open an [issue](https://github.com/yourusername/tazor/issues).
+For any questions or issues, check the [documentation](https://github.com/axologic/tazor) or open an [issue](https://github.com/axologic/tazor/issues).
 
 Happy coding with Tazor!
