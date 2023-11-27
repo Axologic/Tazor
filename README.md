@@ -4,7 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Tazor is a NuGet package that seamlessly integrates Blazor Components to provide a dynamic and interactive static site generation solution. This allows you to harness the power of C# and the Blazor framework for building static websites with engaging user interfaces.
+Tazor is a framework that utilizes the power of Razor Components to provide a dynamic and interactive static site generation solution. This allows you to harness the power of C# and the Blazor framework for building static websites with engaging user interfaces.
 
 ## Getting Started
 
