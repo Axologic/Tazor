@@ -75,8 +75,15 @@ public static class TazorGenerator
 
     private static async Task WriteFile(string url, string html)
     {
+        url = url.TrimStart('/');
+        
+        if (string.IsNullOrWhiteSpace(url))
+        {
+            url = "index";
+        }
+        
         var directory = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, "Output");
-        var outputPath = Path.Combine(directory, $"{url.TrimStart('/')}.html");
+        var outputPath = Path.Combine(directory, $"{url}.html");
             
         Directory.CreateDirectory(Path.GetDirectoryName(outputPath)!);
         
