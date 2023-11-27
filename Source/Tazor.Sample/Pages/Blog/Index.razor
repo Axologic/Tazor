@@ -1,0 +1,33 @@
+﻿@page "/blog/{number}"
+@using Tazor.Sample.Models
+@implements IParameterizedView<Page<BlogPost>>
+
+<h1>Blog</h1>
+@Page
+
+@code {
+    [Parameter]
+    public int Page { get; set; }
+    
+    public static IEnumerable<Page<BlogPost>> GetData()
+    {
+        return new[]
+        {
+            new Page<BlogPost>
+            {
+                Number = 1,
+                Size = 10,
+                Total = 100,
+                Items = new[]
+                {
+                    new BlogPost
+                    {
+                        Id = Guid.NewGuid(),
+                        Title = "Hello, world.",
+                        PublishedOn = DateTime.UtcNow
+                    }
+                }
+            }
+        };
+    }
+}

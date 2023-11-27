@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tazor", "Tazor\Tazor.csproj", "{9F2CBC9D-F174-4D88-B1D6-72689DB19D21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tazor.Sample", "Tazor.Sample\Tazor.Sample.csproj", "{FEAA2AA3-CA68-440A-AE4D-031DB01A8E71}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F2CBC9D-F174-4D88-B1D6-72689DB19D21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F2CBC9D-F174-4D88-B1D6-72689DB19D21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F2CBC9D-F174-4D88-B1D6-72689DB19D21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F2CBC9D-F174-4D88-B1D6-72689DB19D21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEAA2AA3-CA68-440A-AE4D-031DB01A8E71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEAA2AA3-CA68-440A-AE4D-031DB01A8E71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEAA2AA3-CA68-440A-AE4D-031DB01A8E71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEAA2AA3-CA68-440A-AE4D-031DB01A8E71}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
