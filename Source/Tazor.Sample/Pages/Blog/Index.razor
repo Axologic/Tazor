@@ -3,12 +3,25 @@
 @implements IParameterizedView<Page<BlogPost>>
 
 <h1>Blog</h1>
-@Page
+@foreach (var item in Items)
+{
+    <h2>@item.Title</h2>
+    <h3>@item.PublishedOn</h3>
+}
 
 @code {
     [Parameter]
-    public int Page { get; set; }
+    public int Number { get; set; }
     
+    [Parameter]
+    public int Size { get; set; }
+    
+    [Parameter]
+    public int Total { get; set; }
+    
+    [Parameter]
+    public IEnumerable<BlogPost> Items { get; set; } = null!;
+
     public static IEnumerable<Page<BlogPost>> GetData()
     {
         return new[]

@@ -112,7 +112,7 @@ public static class TazorGenerator
                 {
                     builder.OpenComponent<DynamicComponent>(0);
                     builder.AddAttribute(1, nameof(DynamicComponent.Type), componentType);
-                    builder.AddAttribute(2, nameof(DynamicComponent.Parameters), parameters);
+                    builder.AddAttribute(2, nameof(DynamicComponent.Parameters), parameters.ToDictionary());
                     builder.CloseComponent();
                 }
             });
