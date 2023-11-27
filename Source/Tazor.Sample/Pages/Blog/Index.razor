@@ -1,26 +1,23 @@
-﻿@page "/blog/{number}"
+﻿@page "/blog"
+@page "/blog/{number}/{size}"
 @using Tazor.Sample.Models
 @implements IParameterizedView<Page<BlogPost>>
 
 <h1>Blog</h1>
-@foreach (var item in Items)
+@foreach (var item in _items)
 {
     <h2>@item.Title</h2>
     <h3>@item.PublishedOn</h3>
 }
 
 @code {
+    private readonly IEnumerable<BlogPost> _items = new List<BlogPost>();
+
     [Parameter]
     public int Number { get; set; }
-    
+
     [Parameter]
     public int Size { get; set; }
-    
-    [Parameter]
-    public int Total { get; set; }
-    
-    [Parameter]
-    public IEnumerable<BlogPost> Items { get; set; } = null!;
 
     public static IEnumerable<Page<BlogPost>> GetData()
     {
@@ -29,14 +26,29 @@
             new Page<BlogPost>
             {
                 Number = 1,
-                Size = 10,
-                Total = 100,
+                Size = 1,
+                Total = 2,
                 Items = new[]
                 {
                     new BlogPost
                     {
                         Id = Guid.NewGuid(),
                         Title = "Hello, world.",
+                        PublishedOn = DateTime.UtcNow
+                    }
+                }
+            },
+            new Page<BlogPost>
+            {
+                Number = 2,
+                Size = 1,
+                Total = 2,
+                Items = new[]
+                {
+                    new BlogPost
+                    {
+                        Id = Guid.NewGuid(),
+                        Title = "Hello, world 2.",
                         PublishedOn = DateTime.UtcNow
                     }
                 }

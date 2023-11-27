@@ -34,6 +34,12 @@ public static partial class UrlExtensions
         return template;
     }
 
+    public static string[] GetTokens(string template)
+    {
+        var tokens = TokenRegex().Matches(template);
+        return tokens.Select(t => t.Captures.First().Value).ToArray();
+    }
+
     [GeneratedRegex("{([^:}]*):?([^}]*)}")]
     private static partial Regex TokenRegex();
 }

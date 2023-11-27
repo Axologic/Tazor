@@ -11,6 +11,7 @@
       <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.0" />
       <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
       <PackageReference Include="SmartFormat.NET" Version="3.3.0" />
+      <PackageReference Include="TinySitemapGenerator" Version="1.0.5" />
     </ItemGroup>
 
 </Project>
