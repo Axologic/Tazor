@@ -1,4 +1,4 @@
-name: Publish NuGet package
+name: Build and Publish
 
 on:
   push:
@@ -21,3 +21,20 @@ jobs:
     - name: Publish
       working-directory: Source/Tazor/bin/Release
       run: dotnet nuget push *.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: "0"
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 8.0.x
+      - name: Run
+        working-directory: Source/Tazor.Sample
+        run: dotnet run --output ./Output
+      - name: Deploy to GitHub Pages
+        id: deployment
+        working-directory: Source/Tazor.Sample/Output
+        uses: actions/deploy-pages@v2
