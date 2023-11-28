@@ -20,5 +20,5 @@ jobs:
       run: dotnet pack
     - name: Publish
       working-directory: Source/Tazor/bin/Release
-      run: dotnet nuget push "bin/Release/Tazor.*.nupkg" --api-key ${{ secrets.NUGET_KEY }} --source "github"
+      run: dotnet nuget push "bin/Release/Tazor.*.nupkg" --api-key ${{ secrets.NUGET_KEY }}
     
