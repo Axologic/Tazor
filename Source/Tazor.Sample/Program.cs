@@ -1,3 +1,6 @@
 ﻿using Tazor;
 
-await TazorGenerator.Generate();
+var builder = new RunnerBuilder();
+var runner = builder.Build();
+
+await runner.Run();

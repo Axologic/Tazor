@@ -1,8 +1,13 @@
 ﻿namespace Tazor;
 
-public static class TazorGenerator
+public class Runner
 {
-    public static async Task Generate()
+    public Runner(IServiceProvider serviceProvider, RunnerOptions options)
+    {
+        
+    }
+
+    public async Task Run()
     {
         var resolvers = new IDocumentResolver[]
         {

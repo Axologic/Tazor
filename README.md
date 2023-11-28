@@ -25,19 +25,23 @@ dotnet add package Tazor
         ...
     </Project>
     ```
-2. Add the following code to your `Program.cs`:
+   2. Add the following code to your `Program.cs`:
 
-    ```csharp
-    using System;
-    using System.Threading.Tasks;
-    using Tazor;
+       ```csharp
+       using System;
+       using System.Threading.Tasks;
+       using Tazor;
 
-    class Program
-    {
-        static async Task Main(string[] args)
-        {
-            await TazorGenerator.Generate();
-        }
+       class Program
+       {
+           static async Task Main(string[] args)
+           {
+               var builder = new RunnerBuilder();
+               var runner = builder.Build();
+
+               await runner.Run();
+           }
+      }
     }
     ```
 
