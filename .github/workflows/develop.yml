@@ -21,4 +21,3 @@ jobs:
     - name: Publish
       working-directory: Source/Tazor/bin/Release
       run: dotnet nuget push "bin/Release" --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
-Push foo.nupkg to the custom
