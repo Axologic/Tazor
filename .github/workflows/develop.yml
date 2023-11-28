@@ -36,5 +36,6 @@ jobs:
         run: dotnet run
       - name: Deploy to GitHub Pages
         id: deployment
-        working-directory: Source/Tazor.Sample/Output
         uses: actions/deploy-pages@v2
+        working-directory: Source/Tazor.Sample/Output
+        
