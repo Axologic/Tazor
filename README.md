@@ -2,6 +2,8 @@
 
 # Tazor
 
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/axologic/tazor/develop.yml?label=Build)
+![Nuget](https://img.shields.io/nuget/dt/tazor?label=Downloads)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Tazor is a framework that utilizes the power of Razor Components to provide a dynamic and interactive static site generation solution. This allows you to harness the power of C# and the Blazor framework for building static websites with engaging user interfaces.
