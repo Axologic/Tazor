@@ -3,11 +3,6 @@ using CommandLine;
 
 namespace Tazor;
 
-public interface IRunnerOptions
-{
-    string Output { get; }
-}
-
 public class RunnerOptions : IRunnerOptions
 {
     [Option('o', "output", Required = false, HelpText = "Set the output path.")]
