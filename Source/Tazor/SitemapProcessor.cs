@@ -5,11 +5,18 @@ namespace Tazor;
 
 public class SitemapProcessor : IDocumentsProcessor
 {
+    private readonly IRunnerOptions _options;
+
+    public SitemapProcessor(IRunnerOptions options)
+    {
+        _options = options;
+    }
+
     public async Task Process(IEnumerable<Document> documents)
     {
         var sitemap = new Sitemap
         {
-            Filepath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, "Output")
+            Filepath = _options.Output
         };
 
         foreach (var document in documents)

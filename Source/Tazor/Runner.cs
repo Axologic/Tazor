@@ -1,26 +1,24 @@
-﻿namespace Tazor;
+﻿using System.Collections;
+using CommandLine;
+
+namespace Tazor;
 
 public class Runner
 {
-    public Runner(IServiceProvider serviceProvider, RunnerOptions options)
+    private readonly IEnumerable<IDocumentResolver> _resolvers;
+    private readonly IEnumerable<IDocumentsProcessor> _processors;
+    private readonly IRunnerOptions _options;
+
+    public Runner(IEnumerable<IDocumentResolver> resolvers, IEnumerable<IDocumentsProcessor> processors, IRunnerOptions options)
     {
-        
+        _resolvers = resolvers;
+        _processors = processors;
+        _options = options;
     }
 
     public async Task Run()
     {
-        var resolvers = new IDocumentResolver[]
-        {
-            new RazorComponentsResolver()
-        };
-        
-        var processors = new IDocumentsProcessor[]
-        {
-            new OutputProcessor(),
-            new SitemapProcessor()
-        };
-        
-        var documents = resolvers
+        var documents = _resolvers
             .Select(async r => await r.GetDocuments())
             .SelectMany(t => t.Result)
             .ToArray();
@@ -31,7 +29,7 @@ public class Runner
             Console.WriteLine($"  {document.Url}");
         }
 
-        foreach (var processor in processors)
+        foreach (var processor in _processors)
         {
             await processor.Process(documents);
         }
