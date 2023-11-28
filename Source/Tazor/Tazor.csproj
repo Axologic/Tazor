@@ -4,14 +4,30 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <Title>Tazor</Title>
+        <Authors>Axologic</Authors>
+        <Description>Tazor is a NuGet package that seamlessly integrates Blazor Components to provide a dynamic and interactive static site generation solution. This allows you to harness the power of C# and the Blazor framework for building static websites with engaging user interfaces.</Description>
+        <Copyright>Axologic</Copyright>
+        <RepositoryUrl>https://github.com/Axologic/Tazor</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="GitVersion.MsBuild" Version="5.12.0">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
       <PackageReference Include="Microsoft.AspNetCore.Components" Version="8.0.0" />
       <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.0" />
       <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
       <PackageReference Include="SmartFormat.NET" Version="3.3.0" />
       <PackageReference Include="TinySitemapGenerator" Version="1.0.5" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\..\README.md">
+        <Link>README.md</Link>
+      </Content>
     </ItemGroup>
 
 </Project>
