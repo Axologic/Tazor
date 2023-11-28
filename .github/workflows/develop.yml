@@ -44,6 +44,3 @@ jobs:
         uses: actions/deploy-pages@v2
         with:
           path: Source/Tazor.Sample/Output
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
