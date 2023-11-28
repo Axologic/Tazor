@@ -28,10 +28,12 @@
         <Content Include="..\..\LICENSE">
             <Link>LICENSE</Link>
             <Pack>true</Pack>
+            <PackagePath>/</PackagePath>
         </Content>
         <Content Include="..\..\README.md">
             <Link>README.md</Link>
             <Pack>true</Pack>
+            <PackagePath>/</PackagePath>
         </Content>
     </ItemGroup>
 
