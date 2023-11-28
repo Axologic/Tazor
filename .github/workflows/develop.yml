@@ -40,7 +40,10 @@ jobs:
       - name: Run
         working-directory: Source/Tazor.Sample
         run: dotnet run
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v2
+      - name: Update pages artifact
+        uses: actions/upload-pages-artifact@v1
         with:
           path: Source/Tazor.Sample/Output
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
