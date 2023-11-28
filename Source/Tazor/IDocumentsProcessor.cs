@@ -2,5 +2,5 @@
 
 public interface IDocumentsProcessor
 {
-    Task Process(IEnumerable<Document> documents);
+    Task Process(Document[] documents);
 }

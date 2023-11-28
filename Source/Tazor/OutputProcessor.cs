@@ -11,7 +11,7 @@ public class OutputProcessor : IDocumentsProcessor
         _options = options;
     }
 
-    public async Task Process(IEnumerable<Document> documents)
+    public async Task Process(Document[] documents)
     {
         foreach (var document in documents)
         {
@@ -20,6 +20,8 @@ public class OutputProcessor : IDocumentsProcessor
         
             await File.WriteAllTextAsync(outputPath, document.Html);
         }
+        
+        Console.WriteLine($"Output {documents.Length} documents to {_options.Output}");
     }
 
     private string Sanitize(string url)

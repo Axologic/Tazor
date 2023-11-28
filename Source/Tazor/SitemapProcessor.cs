@@ -12,7 +12,7 @@ public class SitemapProcessor : IDocumentsProcessor
         _options = options;
     }
 
-    public async Task Process(IEnumerable<Document> documents)
+    public async Task Process(Document[] documents)
     {
         var sitemap = new Sitemap
         {
