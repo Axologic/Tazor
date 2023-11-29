@@ -39,7 +39,7 @@ jobs:
           dotnet-version: 8.0.x
       - name: Run
         working-directory: Source/Tazor.Sample
-        run: dotnet run --output "./Output"
+        run: dotnet run --output "./Output" --base "/Tazor"
       - name: Update pages artifact
         uses: actions/upload-pages-artifact@v1
         with:

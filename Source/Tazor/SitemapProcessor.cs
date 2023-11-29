@@ -16,7 +16,7 @@ public class SitemapProcessor : IDocumentsProcessor
     {
         var sitemap = new Sitemap
         {
-            Filepath = _options.Output
+            Filepath = _options.OutputPath
         };
 
         foreach (var document in documents)

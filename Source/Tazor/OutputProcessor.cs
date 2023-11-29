@@ -15,13 +15,13 @@ public class OutputProcessor : IDocumentsProcessor
     {
         foreach (var document in documents)
         {
-            var outputPath = Path.Combine(_options.Output, $"{Sanitize(document.Url)}.html");
+            var outputPath = Path.Combine(_options.OutputPath, $"{Sanitize(document.Url)}.html");
             Directory.CreateDirectory(Path.GetDirectoryName(outputPath)!);
         
             await File.WriteAllTextAsync(outputPath, document.Html);
         }
         
-        Console.WriteLine($"Output {documents.Length} documents to {_options.Output}");
+        Console.WriteLine($"Outputted {documents.Length} documents to {_options.OutputPath}");
     }
 
     private string Sanitize(string url)

@@ -1,6 +1,5 @@
 ﻿using CommandLine;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace Tazor;
 
@@ -21,7 +20,7 @@ public class RunnerBuilder
 
     public RunnerBuilder WithOutput(string outputPath)
     {
-        _options.Output = outputPath;
+        _options.OutputPath = outputPath;
         return this;
     }
 

@@ -2,5 +2,11 @@
 
 public interface IRunnerOptions
 {
-    string Output { get; }
+    string OutputPath { get; }
+    
+    string AssetPath { get; }
+    
+    string AppPath { get; }
+    
+    string BasePath { get; }
 }

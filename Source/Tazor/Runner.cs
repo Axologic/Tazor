@@ -33,5 +33,18 @@ public class Runner
         {
             await processor.Process(documents);
         }
+
+        var assets = Directory.GetFiles(Path.Combine(_options.AppPath, _options.AssetPath), "*.*", SearchOption.AllDirectories);
+        
+        Console.WriteLine();
+        Console.WriteLine($"Found {assets.Length} assets:");
+        
+        foreach (var asset in assets)
+        {
+            var relativePath = Path.GetRelativePath(Path.Combine(_options.AppPath, _options.AssetPath), asset);
+            File.Copy(asset, Path.Combine(_options.OutputPath, relativePath));
+            
+            Console.WriteLine($"  {relativePath}");
+        }
     }
 }
