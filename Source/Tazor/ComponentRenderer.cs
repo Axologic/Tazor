@@ -7,16 +7,13 @@ using Microsoft.Extensions.Logging;
 
 namespace Tazor;
 
-public class ComponentRenderer
+public class ComponentRenderer : IComponentRenderer
 {
     private readonly HtmlRenderer _htmlRenderer;
 
-    public ComponentRenderer()
+    public ComponentRenderer(IServiceProvider serviceProvider)
     {
-        var services = new ServiceCollection().AddLogging();
-        var serviceProvider = services.BuildServiceProvider();
         var loggerFactory = serviceProvider.GetRequiredService<ILoggerFactory>();
-        
         _htmlRenderer = new HtmlRenderer(serviceProvider, loggerFactory);
     }
 

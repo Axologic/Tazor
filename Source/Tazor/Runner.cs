@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using CommandLine;
-
-namespace Tazor;
+﻿namespace Tazor;
 
 public class Runner
 {
@@ -28,6 +25,7 @@ public class Runner
         {
             Console.WriteLine($"  {document.Url}");
         }
+        Console.WriteLine();
 
         foreach (var processor in _processors)
         {
@@ -42,7 +40,7 @@ public class Runner
         foreach (var asset in assets)
         {
             var relativePath = Path.GetRelativePath(Path.Combine(_options.AppPath, _options.AssetPath), asset);
-            File.Copy(asset, Path.Combine(_options.OutputPath, relativePath));
+            File.Copy(asset, Path.Combine(_options.OutputPath, relativePath), true);
             
             Console.WriteLine($"  {relativePath}");
         }

@@ -16,6 +16,8 @@ public class RunnerBuilder
         _services.AddTransient<IDocumentResolver, RazorComponentsResolver>();
         _services.AddTransient<IDocumentsProcessor, OutputProcessor>();
         _services.AddTransient<IDocumentsProcessor, SitemapProcessor>();
+        _services.AddTransient<IComponentRenderer, ComponentRenderer>();
+        _services.AddLogging();
     }
 
     public RunnerBuilder WithOutput(string outputPath)

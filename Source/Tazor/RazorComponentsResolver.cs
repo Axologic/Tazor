@@ -5,7 +5,12 @@ namespace Tazor;
 
 public class RazorComponentsResolver : IDocumentResolver
 {
-    private readonly ComponentRenderer _componentRenderer = new();
+    private readonly IComponentRenderer _componentRenderer;
+
+    public RazorComponentsResolver(IComponentRenderer componentRenderer)
+    {
+        _componentRenderer = componentRenderer;
+    }
 
     public async Task<Document[]> GetDocuments()
     {
