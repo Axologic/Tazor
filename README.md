@@ -29,24 +29,23 @@ dotnet add package Tazor
     ```
    2. Add the following code to your `Program.cs`:
 
-       ```csharp
-       using System;
-       using System.Threading.Tasks;
-       using Tazor;
+   ```csharp
+    using System;
+    using System.Threading.Tasks;
+    using Tazor;
 
-       class Program
-       {
-           static async Task Main(string[] args)
-           {
-               var builder = new RunnerBuilder();
-               var runner = builder.Build();
+    class Program
+    {
+        static async Task Main(string[] args)
+        {
+            var builder = new RunnerBuilder(args);
+            var runner = builder.Build();
 
-               await runner.Run();
-           }
-      }
-    }
-    ```
-
+            await runner.Run();
+        }
+   }
+   ```
+    
 3. Run your application:
 
     ```bash
