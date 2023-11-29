@@ -1,5 +1,5 @@
 ﻿@page "/blog"
-@page "/blog/{number}/{size}"
+@page "/blog/{number}"
 @using Tazor.Sample.Models
 @implements IParameterizedView
 
@@ -15,23 +15,18 @@
 
     [Parameter]
     public int Number { get; set; }
-
-    [Parameter]
-    public int Size { get; set; }
-
+    
     public static IEnumerable<ParameterView> GetParameters()
     {
         return new []
         {
             ParameterView.FromDictionary(new Dictionary<string, object?>
             {
-                {nameof(Number), 1},
-                {nameof(Size), 1}
+                {nameof(Number), 1}
             }),
             ParameterView.FromDictionary(new Dictionary<string, object?>
             {
-                {nameof(Number), 2},
-                {nameof(Size), 1}
+                {nameof(Number), 2}
             })
         };
     }
