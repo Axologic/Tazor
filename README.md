@@ -27,7 +27,7 @@ dotnet add package Tazor
         ...
     </Project>
     ```
-   2. Add the following code to your `Program.cs`:
+2. Add the following code to your `Program.cs`:
 
    ```csharp
     using System;
