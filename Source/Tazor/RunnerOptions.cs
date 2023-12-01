@@ -17,5 +17,5 @@ public class RunnerOptions : IRunnerOptions
     
     public string AssetPath { get; set; } = "wwwroot";
 
-    public string AppPath => Path.Combine(Directory.GetCurrentDirectory(), "..", "..");
+    public string AppPath => Path.Combine(AppDomain.CurrentDomain.BaseDirectory);
 }
