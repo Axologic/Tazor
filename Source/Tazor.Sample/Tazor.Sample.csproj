@@ -22,6 +22,19 @@
       <Content Update="wwwroot\robots.txt">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
+      <Content Remove="Output\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Output\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Output\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Output\**" />
     </ItemGroup>
 
 </Project>

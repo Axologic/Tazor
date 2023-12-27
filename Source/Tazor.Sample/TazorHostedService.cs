@@ -11,10 +11,10 @@ public class TazorHostedService : IHostedService
 
     public async Task StartAsync(CancellationToken cancellationToken)
     {
-        var wwwroot = Path.Combine(_environment.ContentRootPath, "wwwroot");
+        var output = Path.Combine(_environment.ContentRootPath, "Output");
         var builder = new RunnerBuilder(new RunnerOptions
         {
-            OutputPath = wwwroot
+            OutputPath = output
         });
         
         var runner = builder.Build();
