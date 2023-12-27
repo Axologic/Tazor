@@ -1,6 +1,15 @@
-﻿using Tazor;
+using Tazor.Sample2;
 
-var builder = new RunnerBuilder(args);
-var runner = builder.Build();
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddHostedService<TazorHostedService>();
 
-await runner.Run();
+var app = builder.Build();
+
+app.UseDefaultFiles();
+app.UseStaticFiles(new StaticFileOptions
+{
+    ServeUnknownFileTypes = true,
+    DefaultContentType = "text/plain"
+});
+
+app.Run();

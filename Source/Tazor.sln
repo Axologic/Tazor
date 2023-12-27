@@ -2,13 +2,13 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tazor", "Tazor\Tazor.csproj", "{9F2CBC9D-F174-4D88-B1D6-72689DB19D21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tazor.Sample", "Tazor.Sample\Tazor.Sample.csproj", "{FEAA2AA3-CA68-440A-AE4D-031DB01A8E71}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Other", "Other", "{416C7771-71F7-4036-A235-A305B4C34AEA}"
 	ProjectSection(SolutionItems) = preProject
 		..\README.md = ..\README.md
 		..\.github\workflows\develop.yml = ..\.github\workflows\develop.yml
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tazor.Sample", "Tazor.Sample\Tazor.Sample.csproj", "{BE036DA2-9BA2-4561-B12E-92F968964F68}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,9 +20,9 @@ Global
 		{9F2CBC9D-F174-4D88-B1D6-72689DB19D21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F2CBC9D-F174-4D88-B1D6-72689DB19D21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F2CBC9D-F174-4D88-B1D6-72689DB19D21}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FEAA2AA3-CA68-440A-AE4D-031DB01A8E71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FEAA2AA3-CA68-440A-AE4D-031DB01A8E71}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FEAA2AA3-CA68-440A-AE4D-031DB01A8E71}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FEAA2AA3-CA68-440A-AE4D-031DB01A8E71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE036DA2-9BA2-4561-B12E-92F968964F68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE036DA2-9BA2-4561-B12E-92F968964F68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE036DA2-9BA2-4561-B12E-92F968964F68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE036DA2-9BA2-4561-B12E-92F968964F68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
