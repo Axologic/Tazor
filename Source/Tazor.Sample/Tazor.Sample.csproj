@@ -4,7 +4,7 @@
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-        <RootNamespace>Tazor.Sample2</RootNamespace>
+        <RootNamespace>Tazor.Sample</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -35,6 +35,12 @@
 
     <ItemGroup>
       <None Remove="Output\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AutoBogus" Version="2.13.1" />
+      <PackageReference Include="Bogus" Version="35.2.0" />
+      <PackageReference Include="Humanizer.Core" Version="2.14.1" />
     </ItemGroup>
 
 </Project>

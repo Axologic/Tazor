@@ -1,0 +1,29 @@
+﻿@page "/blog/{slug}"
+@using Tazor.Sample.Models
+@implements IParameterizedView
+
+<a href="/blog" class="d-block mb-4">Back to posts</a>
+
+<h1>@_post?.Title</h1>
+<h3>@_post?.PublishedOn</h3>
+<p>@_post?.Content</p>
+
+@functions {
+    private BlogPost? _post;
+
+    [Parameter]
+    public string Slug { get; set; } = null!;
+    
+    protected override void OnInitialized()
+    {
+        _post = BlogPosts.GetBlogPosts().Single(p => p.Slug == Slug);
+    }
+
+    public static IEnumerable<ParameterView> GetParameters()
+    {
+        return BlogPosts.GetBlogPosts().Select(p => ParameterView.FromDictionary(new Dictionary<string, object?>
+        {
+            { nameof(Slug), p.Slug }
+        }));
+    }
+}

@@ -1,4 +1,4 @@
-﻿namespace Tazor.Sample2;
+﻿namespace Tazor.Sample;
 
 public class TazorHostedService : IHostedService
 {

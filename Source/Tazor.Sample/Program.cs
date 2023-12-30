@@ -1,5 +1,6 @@
 using Microsoft.Extensions.FileProviders;
-using Tazor.Sample2;
+
+using Tazor.Sample;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddHostedService<TazorHostedService>();

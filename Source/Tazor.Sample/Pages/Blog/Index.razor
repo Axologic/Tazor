@@ -1,34 +1,37 @@
 ﻿@page "/blog"
-@page "/blog/{number}"
+@page "/blog/{number:int}"
 @using Tazor.Sample.Models
+@using Humanizer
 @implements IParameterizedView
 
 <h1>Blog</h1>
 
 @foreach (var item in _items)
 {
-    <h2>@item.Title</h2>
-    <h3>@item.PublishedOn</h3>
+    <article class="mb-4">
+        <a href="/blog/@item.Slug" class="h2">@item.Title.Humanize(LetterCasing.Title)</a>
+        <h4>@item.PublishedOn</h4>
+        <p>@item.Content.Truncate(200, "...")</p>
+    </article>
 }
 
 @code {
-    private readonly IEnumerable<BlogPost> _items = new List<BlogPost>();
+    private IEnumerable<BlogPost?> _items = new List<BlogPost?>();
 
     [Parameter]
     public int Number { get; set; }
-    
+
+    protected override void OnInitialized()
+    {
+        _items = BlogPosts.GetBlogPosts().Skip(Number * 10).Take(10);
+    }
+
     public static IEnumerable<ParameterView> GetParameters()
     {
-        return new []
+        return BlogPosts.GetBlogPosts().Chunk(10).Select((p, i) => ParameterView.FromDictionary(new Dictionary<string, object?>
         {
-            ParameterView.FromDictionary(new Dictionary<string, object?>
-            {
-                {nameof(Number), 1}
-            }),
-            ParameterView.FromDictionary(new Dictionary<string, object?>
-            {
-                {nameof(Number), 2}
-            })
-        };
+            { nameof(Number), i }
+        }));
     }
+
 }
