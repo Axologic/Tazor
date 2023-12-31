@@ -6,7 +6,7 @@ public interface IRunnerOptions
     
     string AssetPath { get; }
     
-    string AppPath { get; }
+    string ContentRootPath { get; }
     
     string BasePath { get; }
 }

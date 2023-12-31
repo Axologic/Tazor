@@ -1,25 +1,31 @@
-﻿namespace Tazor.Sample;
+﻿using System.Diagnostics;
+
+using CommandLine;
+
+namespace Tazor.Sample;
 
 public class TazorHostedService : IHostedService
 {
-    private readonly IHostEnvironment _environment;
+    private readonly RunnerOptions _options;
+    private readonly IHostApplicationLifetime _lifetime;
 
-    public TazorHostedService(IHostEnvironment environment)
+    public TazorHostedService(RunnerOptions options, IHostApplicationLifetime lifetime)
     {
-        _environment = environment;
+        _options = options;
+        _lifetime = lifetime;
     }
 
     public async Task StartAsync(CancellationToken cancellationToken)
     {
-        var output = Path.Combine(_environment.ContentRootPath, "Output");
-        var builder = new RunnerBuilder(new RunnerOptions
-        {
-            OutputPath = output
-        });
-        
+        var builder = new RunnerBuilder(_options);
         var runner = builder.Build();
 
         await runner.Run();
+
+        if (_options.Silent)
+        {
+           Environment.Exit(0);
+        }
     }
 
     public Task StopAsync(CancellationToken cancellationToken)

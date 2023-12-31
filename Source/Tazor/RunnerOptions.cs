@@ -4,9 +4,10 @@ namespace Tazor;
 
 public class RunnerOptions : IRunnerOptions
 {
-    public RunnerOptions()
+    public RunnerOptions(string contentRootPath)
     {
-        OutputPath = Path.Combine(AppPath, "Output");
+        ContentRootPath = contentRootPath;
+        OutputPath = Path.Combine(contentRootPath, "Output");
     }
 
     [Option('o', "output", Required = false, HelpText = "Set the output path.")]
@@ -14,8 +15,11 @@ public class RunnerOptions : IRunnerOptions
 
     [Option('b', "base", Required = false, HelpText = "Set the base path.")]
     public string BasePath { get; set; } = "/";
-    
-    public string AssetPath { get; set; } = "wwwroot";
 
-    public string AppPath => Path.Combine(AppDomain.CurrentDomain.BaseDirectory);
+    [Option('s', "silent", Required = false, HelpText = "Sets whether to preview the content.")]
+    public bool Silent { get; set; } = false;
+    
+    public string AssetPath { get; } = "wwwroot";
+
+    public string ContentRootPath { get; }
 }
