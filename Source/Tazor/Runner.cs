@@ -15,6 +15,8 @@ public class Runner
 
     public async Task Run()
     {
+        Directory.CreateDirectory(_options.OutputPath);
+        
         var documents = _resolvers
             .Select(async r => await r.GetDocuments())
             .SelectMany(t => t.Result)

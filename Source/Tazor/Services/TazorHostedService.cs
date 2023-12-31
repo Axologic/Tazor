@@ -1,8 +1,6 @@
-﻿using System.Diagnostics;
+﻿using Microsoft.Extensions.Hosting;
 
-using CommandLine;
-
-namespace Tazor.Sample;
+namespace Tazor.Services;
 
 public class TazorHostedService : IHostedService
 {

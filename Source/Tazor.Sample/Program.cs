@@ -1,57 +1,9 @@
-using CommandLine;
+using Tazor.Sample.Extensions;
 
-using Microsoft.Extensions.FileProviders;
-
-using Tazor;
-using Tazor.Sample;
-
-var builder = WebApplication.CreateSlimBuilder(args);
-builder.Services.AddHostedService<TazorHostedService>();
-builder.Services.AddSingleton(sp =>
-{
-    var parser = new Parser();
-    var environment = sp.GetRequiredService<IHostEnvironment>();
-    var options = parser.ParseArguments(() => new RunnerOptions(environment.ContentRootPath), Environment.GetCommandLineArgs()).Value;
-    return options;
-});
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddTazor();
 
 var app = builder.Build();
-var options = app.Services.GetRequiredService<RunnerOptions>();
+app.UseTazor();
 
-Directory.CreateDirectory(options.OutputPath);
-
-var fileProvider = new PhysicalFileProvider(options.OutputPath);
-
-app.Use(async (context, func) =>
-{
-    var file = $"{context.Request.Path.Value?.TrimStart('/') ?? "index"}.html";
-    var htmlPath = Path.Combine(options.OutputPath, file);
-    if (File.Exists(htmlPath))
-    {
-        var text = await File.ReadAllTextAsync(htmlPath);
-        await context.Response.WriteAsync(text);
-    }
-    else
-    {
-        await func.Invoke();
-    }
-});
-
-app.UseDefaultFiles(new DefaultFilesOptions
-{
-    FileProvider = fileProvider
-});
-
-app.UseStaticFiles(new StaticFileOptions
-{
-    FileProvider = fileProvider
-});
-
-try
-{
-    await app.RunAsync();
-}
-catch(TaskCanceledException)
-{
-    return;
-}
+await app.RunAsync();

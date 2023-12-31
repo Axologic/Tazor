@@ -20,6 +20,8 @@
         </PackageReference>
         <PackageReference Include="Microsoft.AspNetCore.Components" Version="8.0.0"/>
         <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="8.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0"/>
         <PackageReference Include="SmartFormat.NET" Version="3.3.0"/>
         <PackageReference Include="TinySitemapGenerator" Version="1.0.5"/>
@@ -36,6 +38,11 @@
             <Pack>true</Pack>
             <PackagePath>/</PackagePath>
         </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Microsoft.Extensions.Hosting.Abstractions">
+      </Reference>
     </ItemGroup>
 
 </Project>
