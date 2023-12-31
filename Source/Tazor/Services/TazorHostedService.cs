@@ -1,24 +1,22 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace Tazor.Services;
 
 public class TazorHostedService : IHostedService
 {
-    private readonly RunnerOptions _options;
-    private readonly IHostApplicationLifetime _lifetime;
+    private readonly IRunnerOptions _options;
+    private readonly IRunner _runner;
 
-    public TazorHostedService(RunnerOptions options, IHostApplicationLifetime lifetime)
+    public TazorHostedService(IRunnerOptions options, IRunner runner)
     {
         _options = options;
-        _lifetime = lifetime;
+        _runner = runner;
     }
 
     public async Task StartAsync(CancellationToken cancellationToken)
     {
-        var builder = new RunnerBuilder(_options);
-        var runner = builder.Build();
-
-        await runner.Run();
+        await _runner.Run();
 
         if (_options.Silent)
         {

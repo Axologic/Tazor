@@ -1,6 +1,6 @@
 ﻿namespace Tazor;
 
-public class Runner
+public class Runner : IRunner
 {
     private readonly IEnumerable<IDocumentResolver> _resolvers;
     private readonly IEnumerable<IDocumentsProcessor> _processors;

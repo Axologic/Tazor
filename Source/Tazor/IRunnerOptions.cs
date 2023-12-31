@@ -9,4 +9,6 @@ public interface IRunnerOptions
     string ContentRootPath { get; }
     
     string BasePath { get; }
+    
+    bool Silent { get; }
 }

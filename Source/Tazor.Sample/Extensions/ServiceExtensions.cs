@@ -10,21 +10,30 @@ public static class ServiceExtensions
 {
     public static IServiceCollection AddTazor(this IServiceCollection services)
     {
+        services.AddTransient<IRunner, Runner>();
+        services.AddTransient<IDocumentResolver, RazorComponentsResolver>();
+        services.AddTransient<IDocumentsProcessor, OutputProcessor>();
+        services.AddTransient<IDocumentsProcessor, SitemapProcessor>();
+        services.AddTransient<IComponentRenderer, ComponentRenderer>();
+        services.AddLogging();
+        
         services.AddHostedService<TazorHostedService>();
-        services.AddSingleton(sp =>
+        services.AddSingleton<IRunnerOptions>(sp =>
         {
             var parser = new Parser();
             var environment = sp.GetRequiredService<IHostEnvironment>();
             var options = parser.ParseArguments(() => new RunnerOptions(environment.ContentRootPath), Environment.GetCommandLineArgs()).Value;
             return options;
         });
+        
+        services.AddSingleton<IServiceCollection>(_ => services);
 
         return services;
     }
 
-    public static IApplicationBuilder UseTazor(this IApplicationBuilder app)
+    public static IApplicationBuilder UseTazor(this WebApplication app)
     {
-        var options = app.ApplicationServices.GetRequiredService<RunnerOptions>();
+        var options = app.Services.GetRequiredService<IRunnerOptions>();
 
         Directory.CreateDirectory(options.OutputPath);
         
