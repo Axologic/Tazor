@@ -1,7 +1,11 @@
 ﻿using System.Reflection;
+
 using Microsoft.AspNetCore.Components;
 
-namespace Tazor;
+using Tazor.Extensions;
+using Tazor.Services;
+
+namespace Tazor.Resolvers;
 
 public class RazorComponentsResolver : IDocumentResolver
 {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 
-namespace Tazor;
+namespace Tazor.Services;
 
 public interface IComponentRenderer
 {

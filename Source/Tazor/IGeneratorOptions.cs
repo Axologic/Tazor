@@ -1,6 +1,6 @@
 ﻿namespace Tazor;
 
-public interface IRunnerOptions
+public interface IGeneratorOptions
 {
     string OutputPath { get; }
     

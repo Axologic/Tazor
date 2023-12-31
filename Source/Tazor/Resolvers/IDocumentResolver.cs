@@ -1,4 +1,4 @@
-﻿namespace Tazor;
+﻿namespace Tazor.Resolvers;
 
 public interface IDocumentResolver
 {

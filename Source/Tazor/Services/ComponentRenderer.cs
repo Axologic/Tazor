@@ -1,11 +1,12 @@
 ﻿using System.Reflection;
+
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace Tazor;
+namespace Tazor.Services;
 
 public class ComponentRenderer : IComponentRenderer
 {

@@ -1,6 +1,6 @@
 ﻿namespace Tazor;
 
-public interface IRunner
+public interface IGenerator
 {
     Task Run();
 }

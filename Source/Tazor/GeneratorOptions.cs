@@ -2,9 +2,9 @@
 
 namespace Tazor;
 
-public class RunnerOptions : IRunnerOptions
+public class GeneratorOptions : IGeneratorOptions
 {
-    public RunnerOptions(string contentRootPath)
+    public GeneratorOptions(string contentRootPath)
     {
         ContentRootPath = contentRootPath;
         OutputPath = Path.Combine(contentRootPath, "Output");

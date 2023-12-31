@@ -5,18 +5,18 @@ namespace Tazor.Services;
 
 public class TazorHostedService : IHostedService
 {
-    private readonly IRunnerOptions _options;
-    private readonly IRunner _runner;
+    private readonly IGeneratorOptions _options;
+    private readonly IGenerator _generator;
 
-    public TazorHostedService(IRunnerOptions options, IRunner runner)
+    public TazorHostedService(IGeneratorOptions options, IGenerator generator)
     {
         _options = options;
-        _runner = runner;
+        _generator = generator;
     }
 
     public async Task StartAsync(CancellationToken cancellationToken)
     {
-        await _runner.Run();
+        await _generator.Run();
 
         if (_options.Silent)
         {

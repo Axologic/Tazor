@@ -1,12 +1,15 @@
-﻿namespace Tazor;
+﻿using Tazor.Processors;
+using Tazor.Resolvers;
 
-public class Runner : IRunner
+namespace Tazor;
+
+public class Generator : IGenerator
 {
     private readonly IEnumerable<IDocumentResolver> _resolvers;
     private readonly IEnumerable<IDocumentsProcessor> _processors;
-    private readonly IRunnerOptions _options;
+    private readonly IGeneratorOptions _options;
 
-    public Runner(IEnumerable<IDocumentResolver> resolvers, IEnumerable<IDocumentsProcessor> processors, IRunnerOptions options)
+    public Generator(IEnumerable<IDocumentResolver> resolvers, IEnumerable<IDocumentsProcessor> processors, IGeneratorOptions options)
     {
         _resolvers = resolvers;
         _processors = processors;

@@ -1,12 +1,10 @@
-﻿using System.Reflection;
-
-namespace Tazor;
+﻿namespace Tazor.Processors;
 
 public class OutputProcessor : IDocumentsProcessor
 {
-    private readonly IRunnerOptions _options;
+    private readonly IGeneratorOptions _options;
 
-    public OutputProcessor(IRunnerOptions options)
+    public OutputProcessor(IGeneratorOptions options)
     {
         _options = options;
     }

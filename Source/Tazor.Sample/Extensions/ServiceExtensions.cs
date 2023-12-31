@@ -2,6 +2,8 @@
 
 using Microsoft.Extensions.FileProviders;
 
+using Tazor.Processors;
+using Tazor.Resolvers;
 using Tazor.Services;
 
 namespace Tazor.Sample.Extensions;
@@ -10,7 +12,7 @@ public static class ServiceExtensions
 {
     public static IServiceCollection AddTazor(this IServiceCollection services)
     {
-        services.AddTransient<IRunner, Runner>();
+        services.AddTransient<IGenerator, Generator>();
         services.AddTransient<IDocumentResolver, RazorComponentsResolver>();
         services.AddTransient<IDocumentsProcessor, OutputProcessor>();
         services.AddTransient<IDocumentsProcessor, SitemapProcessor>();
@@ -18,11 +20,11 @@ public static class ServiceExtensions
         services.AddLogging();
         
         services.AddHostedService<TazorHostedService>();
-        services.AddSingleton<IRunnerOptions>(sp =>
+        services.AddSingleton<IGeneratorOptions>(sp =>
         {
             var parser = new Parser();
             var environment = sp.GetRequiredService<IHostEnvironment>();
-            var options = parser.ParseArguments(() => new RunnerOptions(environment.ContentRootPath), Environment.GetCommandLineArgs()).Value;
+            var options = parser.ParseArguments(() => new GeneratorOptions(environment.ContentRootPath), Environment.GetCommandLineArgs()).Value;
             return options;
         });
         
@@ -33,7 +35,7 @@ public static class ServiceExtensions
 
     public static IApplicationBuilder UseTazor(this WebApplication app)
     {
-        var options = app.Services.GetRequiredService<IRunnerOptions>();
+        var options = app.Services.GetRequiredService<IGeneratorOptions>();
 
         Directory.CreateDirectory(options.OutputPath);
         

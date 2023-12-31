@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Tazor;
+namespace Tazor.Extensions;
 
 public static partial class UrlExtensions
 {

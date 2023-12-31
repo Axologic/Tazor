@@ -1,13 +1,12 @@
-﻿using System.Reflection;
-using TinySitemapGenerator;
+﻿using TinySitemapGenerator;
 
-namespace Tazor;
+namespace Tazor.Processors;
 
 public class SitemapProcessor : IDocumentsProcessor
 {
-    private readonly IRunnerOptions _options;
+    private readonly IGeneratorOptions _options;
 
-    public SitemapProcessor(IRunnerOptions options)
+    public SitemapProcessor(IGeneratorOptions options)
     {
         _options = options;
     }
