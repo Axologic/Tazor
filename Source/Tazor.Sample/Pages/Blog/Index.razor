@@ -9,7 +9,7 @@
 @foreach (var item in _items)
 {
     <article class="mb-4">
-        <a href="/blog/@item.Slug" class="h2">@item.Title.Humanize(LetterCasing.Title)</a>
+        <a href="blog/@item.Slug" class="h2">@item.Title.Humanize(LetterCasing.Title)</a>
         <h4>@item.PublishedOn</h4>
         <p>@item.Content.Truncate(200, "...")</p>
     </article>
