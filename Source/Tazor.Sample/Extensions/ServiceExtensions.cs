@@ -25,6 +25,9 @@ public static class ServiceExtensions
     public static IApplicationBuilder UseTazor(this IApplicationBuilder app)
     {
         var options = app.ApplicationServices.GetRequiredService<RunnerOptions>();
+
+        Directory.CreateDirectory(options.OutputPath);
+        
         var fileProvider = new PhysicalFileProvider(options.OutputPath);
 
         app.Use(async (context, func) =>
